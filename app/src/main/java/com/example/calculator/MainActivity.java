@@ -55,11 +55,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         plusMinusButton.setOnClickListener(v ->{
-            mainText.setText(formatResult(Double.parseDouble(mainText.getText().toString()) * -1));
+            mainText.setText(formatResult(dotFormat(mainText.getText().toString()) * -1));
         });
 
         percentButton.setOnClickListener(v ->{
-            mainText.setText(formatResult(Double.parseDouble(mainText.getText().toString()) / 100));
+            mainText.setText(formatResult(dotFormat(mainText.getText().toString()) / 100));
         });
 
         commaButton.setOnClickListener(v ->{
