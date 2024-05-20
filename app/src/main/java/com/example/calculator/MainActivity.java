@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
     private Button commaButton;
     private TextView mainText;
     private double prevText;
-    private boolean begin = true;
     private boolean step = true;
     private String prevAction;
 
@@ -50,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
 
         acButton.setOnClickListener(v ->{
             mainText.setText("0");
-            begin = true;
             step = true;
         });
 
@@ -106,12 +104,10 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
-        // Restore state if available
+        
         if (savedInstanceState != null) {
             mainText.setText(savedInstanceState.getString("mainText"));
             prevText = savedInstanceState.getDouble("prevText");
-            begin = savedInstanceState.getBoolean("begin");
             step = savedInstanceState.getBoolean("step");
             prevAction = savedInstanceState.getString("prevAction");
         }
@@ -122,7 +118,6 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         outState.putString("mainText", mainText.getText().toString());
         outState.putDouble("prevText", prevText);
-        outState.putBoolean("begin", begin);
         outState.putBoolean("step", step);
         outState.putString("prevAction", prevAction);
     }
